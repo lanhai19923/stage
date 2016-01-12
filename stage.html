@@ -1,0 +1,91 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="keywords" content="">
+        <meta name="description" content="">
+        <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+        <title></title>
+        <style>
+            
+        </style>
+        <script src="underscore-min.js"></script>
+        <script src="deepClone.js"></script>
+        <script src="stage.js"></script>
+    </head>
+    <body ng-app="myapp">
+        <div id="tree" style = "margin-bottom: 40px;">
+        </div>
+        <div id="test" class="test1 test2" data-group="container" ddd-asd="dde" name="tt">
+            <div class="ssd" style="width:30px;">ds<span class="strong">11</span><b>de</b></div>
+            <p>lalalalala</p>
+            <ul no-render="true">
+                <li class="item">abc1</li>
+                <li class="item">abc2</li>
+                <li class="item">abc3</li>
+                <li class="item">abc4</li>
+            </ul>
+            <div class="item">abc4</div>
+            <div class="ssd"></div>
+            <div class="ssd"></div>
+        </div>
+
+        <script>
+            var mystage = new stage({
+                debug: true
+            });
+
+            var node1 = mystage.createNode();
+            var node2 = mystage.createNode();
+            var node3 = mystage.createNode();
+            var node4 = mystage.createNode();
+            var node5 = mystage.createNode();
+            var node6 = mystage.createNode();
+            var node7 = mystage.createNode();
+            var node8 = mystage.createNode();
+            var node9 = mystage.createNode();
+
+            node1.insertBefore();
+            node1.append(node2);
+            node1.append(node3);
+            node1.prepend(node4);
+            node2.append(node5);
+            node2.append(node6);
+            node2.append(node7);
+            node8.insertBefore(node5);
+            node9.insertAfter(node6);
+
+            mystage.$(2).id = 200;
+            mystage.$(5).id = 500;
+            var testf = function () {
+                this.a = 1;
+                this.b = 2;
+                this.c = 3;
+            };
+            testf.prototype.d = 4;
+            testf.prototype.e = function () {
+                console.log(this.a);
+            };
+            var testObj = new testf();
+            node10 = mystage.translateIntoNodeObj(testObj);
+            node9.append(node10);
+
+            /*
+            var aa = document.getElementById("test");//aa为dom树
+            aa.querySelector("ul").onclick = function () {
+                alert("this is a ul");
+            }
+            var bb = mystage.domTreeToStageTree(aa,"con");//bb为stage树
+            bb.insertAfter();
+            var cc = mystage.stageTreeToDomTree(bb);
+            var dd = mystage.domTreeToStageTree(aa,"con");
+            var ee = mystage.domTreeToStageTree(aa,"con");
+            var ff = JSON.stringify(mystage.stageTreeToJson(mystage.allNodes));
+            var gg = JSON.parse(ff);
+            var hh = mystage.jsonToStageTree(gg);
+            */
+
+
+        </script>
+    </body>
+</html>
